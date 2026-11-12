@@ -71,6 +71,16 @@ public class ClienteRepositoryTests : IDisposable
             excepcion.Message);
     }
 
+    [Fact]
+    public void ObtenerPorId_IdInexistente_DebeRetornarNulo()
+    {
+        var service = new ClienteService(_repository);
+        int idInexistente = 999;
+
+        var resultado = service.ObtenerPorId(idInexistente);
+        Assert.Null(resultado);
+    }
+
 
     public void Dispose()
     {
