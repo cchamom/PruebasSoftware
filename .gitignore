@@ -1,0 +1,54 @@
+## .NET / C# Build & Cache Artifacts
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+*.nupkg
+*.snupkg
+
+## Visual Studio / VS Code
+.vs/
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Temporary SQLite Test Databases (Archivos basura de pruebas)
+*.db
+*.db-shm
+*.db-wal
+clientes_test_*.db
+clientes_api_test_*.db
+*.sqlite
+*.sqlite3
+
+## Operating System Junk Files
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS / Linux
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+
+## Test Results & Coverage
+TestResults/
+*.trx
+*.xml
+coverage/
