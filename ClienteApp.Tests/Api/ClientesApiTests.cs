@@ -1,5 +1,4 @@
-﻿
-using System.Net;
+﻿using System.Net;
 using System.Net.Http.Json;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
@@ -62,6 +61,46 @@ public class ClientesApiTests
         Assert.Equal(
             HttpStatusCode.BadRequest,
             response.StatusCode);
+    }
+
+    [Fact]
+    public async Task ObtenerPorId_ClienteExistente_DebeRetornar200()
+    {
+        using var factory = new ClienteApiFactory();
+        using var client = factory.CreateClient();
+
+        var solicitud = new
+        {
+            Nombre = "Carlos Mendoza",
+            Correo = $"carlos_{Guid.NewGuid():N}@example.com"
+        };
+
+        var postResponse = await client.PostAsJsonAsync("/api/Clientes", solicitud);
+        Assert.Equal(HttpStatusCode.Created, postResponse.StatusCode);
+
+        var clienteCreado = await postResponse.Content.ReadFromJsonAsync<ClienteRespuesta>();
+        Assert.NotNull(clienteCreado);
+
+        var response = await client.GetAsync($"/api/Clientes/{clienteCreado.Id}");
+
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+
+        var clienteObtenido = await response.Content.ReadFromJsonAsync<ClienteRespuesta>();
+        Assert.NotNull(clienteObtenido);
+        Assert.Equal(clienteCreado.Id, clienteObtenido.Id);
+        Assert.Equal(solicitud.Nombre, clienteObtenido.Nombre);
+    }
+
+    [Fact]
+    public async Task ObtenerPorId_ClienteInexistente_DebeRetornar404()
+    {
+        using var factory = new ClienteApiFactory();
+        using var client = factory.CreateClient();
+        int idInexistente = 9999;
+
+        var response = await client.GetAsync($"/api/Clientes/{idInexistente}");
+
+        Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
     }
 
     private sealed record ClienteRespuesta(
