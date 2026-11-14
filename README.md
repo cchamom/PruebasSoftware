@@ -39,6 +39,19 @@ Pruebas de extremo a extremo (End-to-End / API) implementadas mediante **`WebApp
 
   ![Evidencia de Pruebas Exitosas](./img/pruebaAPI.png)
 
+## 4. Pruebas en swagger
+
+### Swagger
+
+![Evidencia de Pruebas Exitosas](./img/swagger1.png)
+
+### 200 Ok
+
+![Evidencia de Pruebas Exitosas](./img/swagger2.png)
+
+### 404 Not Found
+
+![Evidencia de Pruebas Exitosas](./img/swagger3.png)
 
 ---
 
