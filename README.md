@@ -1,10 +1,10 @@
-# 🧪 Documentación de Pruebas - ClienteApp
+# Documentación de Pruebas - ClienteApp
 
 Este documento describe la suite de pruebas automatizadas implementada para el proyecto **ClienteApp**, abarcando pruebas **unitarias**, de **integración** con SQLite y de **API** mediante `WebApplicationFactory`.
 
 ---
 
-## 📋 Resumen de Pruebas Nuevas Implementadas
+## Resumen de Pruebas Nuevas Implementadas
 
 ### 1. Pruebas Unitarias (`ClienteServiceTests.cs`)
 Diseñadas para aislar la lógica de negocio del servicio utilizando **Moq** para simular el comportamiento del repositorio sin acceder a bases de datos reales.
@@ -42,7 +42,7 @@ Pruebas de extremo a extremo (End-to-End / API) implementadas mediante **`WebApp
 
 ---
 
-## 🚀 Cómo Ejecutar las Pruebas
+## Cómo Ejecutar las Pruebas
 
 Para ejecutar toda la suite de pruebas del proyecto y verificar que los resultados sean correctos, sigue estos pasos desde tu terminal:
 
